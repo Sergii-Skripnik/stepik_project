@@ -1,4 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
+#from selenium.common.exceptions import AttributeError
+
 
 class BasePage():
     def __init__(self, browser, url):
@@ -12,6 +14,8 @@ class BasePage():
         except (NoSuchElementException):
             return False
         return True
+
+
 
     def open(self):
         self.browser.get(self.url)
