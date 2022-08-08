@@ -18,6 +18,11 @@ class ProductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.XPATH, "//a[@class = 'btn btn-default']")
+    BASKET_LINK_DISPLAYS_PRICE = (By.XPATH, "(//p[@class = 'price_color align-right'])[2]")
+    MESSAGE_BASKET_IS_EMPTY = (By.XPATH, "// div[ @ id = 'content_inner']/p")
+
+
 
 
 
