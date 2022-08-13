@@ -21,6 +21,11 @@ class BasePageLocators():
     BASKET_LINK = (By.XPATH, "//a[@class = 'btn btn-default']")
     BASKET_LINK_DISPLAYS_PRICE = (By.XPATH, "(//p[@class = 'price_color align-right'])[2]")
     MESSAGE_BASKET_IS_EMPTY = (By.XPATH, "// div[ @ id = 'content_inner']/p")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    EMAIL_ADDRESS_FIELD = (By.ID, "id_registration-email")
+    PASSWORD_FIELD = (By.ID, "id_registration-password1")
+    CONFIRM_PASSWORD_FIELD = (By.ID, "id_registration-password2")
+    REGISTER_BUTTON = (By.NAME, "registration_submit")
 
 
 

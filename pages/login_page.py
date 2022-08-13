@@ -1,5 +1,9 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+import time
+from mimesis import Person
+from mimesis.locales import Locale
+from .locators import BasePageLocators
 
 
 class LoginPage(BasePage):
@@ -18,3 +22,19 @@ class LoginPage(BasePage):
 
     def should_be_register_form(self):
         assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "register_form is not presented"
+
+    def register_new_user(self):
+        # создание email и password
+        email = str(time.time()) + "@fakemail.org"
+        password = Person(locale=Locale.EN).password(length=20)
+        # регистрация нового пользователя
+        email_address_field = self.browser.find_element(*BasePageLocators.EMAIL_ADDRESS_FIELD)
+        email_address_field.send_keys(email)
+        password_field = self.browser.find_element(*BasePageLocators.PASSWORD_FIELD)
+        password_field.send_keys(password)
+        confirm_password_field = self.browser.find_element(*BasePageLocators.CONFIRM_PASSWORD_FIELD)
+        confirm_password_field.send_keys(password)
+        register_button = self.browser.find_element(*BasePageLocators.REGISTER_BUTTON)
+        register_button.click()
+
+
