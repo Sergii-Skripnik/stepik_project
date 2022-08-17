@@ -3,15 +3,12 @@ from .base_page import BasePage
 import time
 
 
-
-
 class ProductPage(BasePage):
     def go_to_product_page(self):
         Add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         Add_to_basket_button.click()
         self.solve_quiz_and_get_code()
         time.sleep(5)
-
 
     def should_be_message_of_adding_book_to_the_basket(self):
         book_in_the_basket = self.browser.find_element(*ProductPageLocators.MESSAGE_OF_ADDING_THE_BOOK)
